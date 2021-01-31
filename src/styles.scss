@@ -12,8 +12,17 @@
   //width: 100%;
   min-width: 5ch;
   margin: 5px;
+  text-align: center;
+
+  h5 {
+    margin-bottom: 0;
+  }
 
   a span {
-    margin-right: 10px;
+    margin-right: 5px;
+  }
+
+  .bp3-card {
+    padding: 10px;
   }
 }

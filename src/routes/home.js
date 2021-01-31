@@ -35,15 +35,6 @@ const Home = () => {
                   <NavLink to={link.to}>
                     <Icon icon={link.icon} />
                     {link.title}
-                    {link.to === "/todos" && (
-                      <span> ({state.todo.all.length})</span>
-                    )}
-                    {link.to === "/journal" && (
-                      <span>
-                        {" "}
-                        ({Object.values(state.journal.items).length})
-                      </span>
-                    )}
                   </NavLink>
                 </h5>
               </Card>
