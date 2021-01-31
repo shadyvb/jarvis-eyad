@@ -11,7 +11,7 @@ self.addEventListener("install", function (e) {
     caches.open("myonsenuipwa").then((cache) => {
       // If the request for any of these resources fails, _none_ of the resources will be
       // added to the cache.
-      return cache.addAll(["/", "/index.html"]);
+      //return cache.addAll(["/", "/index.html"]);
     })
   );
 });
