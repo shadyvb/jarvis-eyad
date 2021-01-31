@@ -1,10 +1,10 @@
 import { Card, Classes, Elevation, Icon } from "@blueprintjs/core";
-//import variables from "@blueprintjs/core/lib/scss/variables";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useStateContext } from "../state";
 
 const links = [
-  { to: "/routines", icon: "book", title: "Check off tasks!" },
+  { to: "/todos", icon: "endorsed", title: "Check off tasks!" },
   { to: "/journal", icon: "book", title: "Dear Diary.." },
   { to: "/code", icon: "code", title: "Code the future!" },
   { to: "/language", icon: "translate", title: "Parle au Francais!" },
@@ -17,33 +17,47 @@ const links = [
   { to: "/earn", icon: "dollar", title: "Earn money!" }
 ];
 
-const Home = () => (
-  <>
-    <div style={{ textAlign: "center" }}>
-      <h1>Hello Eyad!</h1>
-      <h2>What do you want to do now?</h2>
-    </div>
-    <div className="card-container">
-      {links.map((link) => (
-        <div className="card">
-          <NavLink to={link.to}>
-            <Card interactive={true} elevation={Elevation.TWO}>
-              <h5 className={Classes.HEADING}>
-                <NavLink to={link.to}>
-                  <Icon icon={link.icon} />
-                  {link.title}
-                </NavLink>
-              </h5>
-            </Card>
-          </NavLink>
-        </div>
-      ))}
-    </div>
-  </>
-);
+const Home = () => {
+  const { state } = useStateContext();
 
-Home.path = "/";
-Home.exact = true;
-Home.title = "Home";
+  return (
+    <>
+      <div style={{ textAlign: "center" }}>
+        <h1>Hello Eyad!</h1>
+        <h2>What do you want to do now?</h2>
+      </div>
+      <div className="card-container">
+        {links.map((link) => (
+          <div className="card">
+            <NavLink to={link.to}>
+              <Card interactive={true} elevation={Elevation.TWO}>
+                <h5 className={Classes.HEADING}>
+                  <NavLink to={link.to}>
+                    <Icon icon={link.icon} />
+                    {link.title}
+                    {link.to === "/todos" && (
+                      <span> ({state.todo.all.length})</span>
+                    )}
+                    {link.to === "/journal" && (
+                      <span>
+                        {" "}
+                        ({Object.values(state.journal.items).length})
+                      </span>
+                    )}
+                  </NavLink>
+                </h5>
+              </Card>
+            </NavLink>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+Home.route = {
+  path: "/",
+  exact: true
+};
 
 export default Home;

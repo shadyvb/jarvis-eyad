@@ -1,19 +1,6 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import Home from "./home";
-import Code from "./code";
-import AppBreadcrumb from "../structures/breadcrump";
+export { default as Home } from "./home";
+export { default as Code } from "./code";
+export { default as Todo } from "./todo";
+export { default as Journal } from "./journal";
 
-const routes = [Home, Code];
-
-export default () =>
-  routes.map((Component) => (
-    <Route
-      key={Component.path}
-      path={Component.path}
-      exact={Component.exact || false}
-    >
-      <AppBreadcrumb Component={Component} />
-      <Component />
-    </Route>
-  ));
+export { default as Catchall } from "./catchall";

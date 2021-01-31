@@ -6,7 +6,8 @@ const Code = () => (
   </>
 );
 
-Code.path = "/code";
-Code.title = "Code";
+Code.route = {
+  path: "/code"
+};
 
 export default Code;
