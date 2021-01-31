@@ -5,11 +5,7 @@ const Home = () => (
   <>
     <h1>Hello Eyad!</h1>
     <h2>What do you want to do today?</h2>
-    <ul>
-      <li>
-        <Link to="/code">Code</Link>
-      </li>
-    </ul>
+    <Link to="/code">Code</Link>
   </>
 );
 
