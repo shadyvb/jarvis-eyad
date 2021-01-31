@@ -6,11 +6,14 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 
 import App from "./structures/app";
+import { StateContextProvider } from "./state";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <StateContextProvider>
+      <App />
+    </StateContextProvider>
   </StrictMode>,
   rootElement
 );

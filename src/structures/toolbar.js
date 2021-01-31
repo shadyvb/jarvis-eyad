@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Button, Alignment } from "@blueprintjs/core";
 import { useHistory } from "react-router-dom";
 
-const AppBreadcrumb = ({ Component }) => {
+const Toolbar = () => {
   const history = useHistory();
   const goHome = () => history.push("/");
   const goBack = () => history.goBack();
@@ -21,11 +21,13 @@ const AppBreadcrumb = ({ Component }) => {
         <Navbar.Divider />
         <Navbar.Heading>Jarvis</Navbar.Heading>
       </Navbar.Group>
+      {/*
       <Navbar.Group align={Alignment.RIGHT}>
-        <Button className="bp3-minimal" icon="menu" text={""} />
+        <Button icon="menu" minimal />
       </Navbar.Group>
+      */}
     </Navbar>
   );
 };
 
-export default AppBreadcrumb;
+export default Toolbar;
