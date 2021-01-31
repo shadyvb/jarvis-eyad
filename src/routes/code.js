@@ -7,5 +7,6 @@ const Code = () => (
 );
 
 Code.path = "/code";
+Code.title = "Code";
 
 export default Code;

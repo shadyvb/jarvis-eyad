@@ -2,8 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Home from "./home";
 import Code from "./code";
-import { Page } from "react-onsenui";
-import AppToolbar from "../structures/toolbar";
+import AppBreadcrumb from "../structures/breadcrump";
 
 const routes = [Home, Code];
 
@@ -14,8 +13,7 @@ export default () =>
       path={Component.path}
       exact={Component.exact || false}
     >
-      <Page renderToolbar={() => <AppToolbar />}>
-        <Component />
-      </Page>
+      <AppBreadcrumb Component={Component} />
+      <Component />
     </Route>
   ));
