@@ -1,4 +1,4 @@
-import { Card, Classes, Elevation, Icon } from "@blueprintjs/core";
+import { Button, Card, Classes, Elevation, Icon } from "@blueprintjs/core";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useStateContext } from "../state";
@@ -17,14 +17,25 @@ const links = [
   { to: "/earn", icon: "dollar", title: "Earn money!" }
 ];
 
-const Home = () => {
-  const { state } = useStateContext();
+const listen = () => {
+  var recognition = new webkitSpeechRecognition(); /* eslint-disable-line */
+  recognition.onresult = function (event) {
+    console.log(event);
+  };
+  recognition.start();
+};
 
+const Home = () => {
   return (
     <>
       <div style={{ textAlign: "center" }}>
         <h1>Hello Eyad!</h1>
         <h2>What do you want to do now?</h2>
+        {typeof webkitSpeechRecognition !== "undefined" && (
+          <Button primary large onClick={listen}>
+            Speak your words
+          </Button>
+        )}
       </div>
       <div className="card-container">
         {links.map((link) => (

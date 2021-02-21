@@ -16,7 +16,8 @@ const defaultState = reducers.reduce(
  */
 const reducer = (state, { type, payload }) => {
   // Get reducer name, and action callback, from action `type`
-  const [name, callback] = type.split("|");
+  const [name, ...callbackSegments] = type.split("|");
+  const callback = callbackSegments.join("_");
   // Find the target reducer object by name
   const reducer = reducers.find((reducer) => reducer.name === name);
   // Execute the action callback on the related state branch
